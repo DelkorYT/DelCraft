@@ -5342,7 +5342,7 @@ DelCraft.adj = {
 		["rune thread"] = 2,
 	},
 	["gordok ogre suit"] = {
-		["bolt of rune cloth"] = 2,
+		["bolt of runecloth"] = 2,
 		["rugged leather"] = 4,
 		["ogre tannin"] = 1,
 		["rune thread"] = 1,
