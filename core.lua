@@ -132,9 +132,13 @@ local function MyAddonCommands(msg, _)
 
 	local root, qty = string.match(msg, "(%D+)%s(%d+)")
 
-	if root == nil or qty == nil then
+	if qty == nil then
+		qty = 1
+		root = string.match(msg, "%D+")
+	end
+	if root == nil then
 		print(
-			"wrong inputs, use '/craft <item> <quantity>' where <item> is the name of the item (string) and <quantity> the amount (number)"
+			"wrong inputs, use '/craft <item> <quantity>' where <item> is the name of the item (string) and <quantity> the amount (number). if you do not specify a quantity, then quantity = 1 is assumed"
 		)
 		return
 	end
