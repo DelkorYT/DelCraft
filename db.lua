@@ -2969,7 +2969,7 @@ DelCraft.adj = {
 		["star ruby"] = 1,
 		["fused wiring"] = 1,
 	},
-	["gnomisch battle chicken"] = {
+	["gnomish battle chicken"] = {
 		["mithril casing"] = 1,
 		["truesilver bar"] = 6,
 		["mithril bar"] = 6,
