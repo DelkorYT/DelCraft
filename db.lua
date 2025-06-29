@@ -2977,7 +2977,7 @@ DelCraft.adj = {
 		["gold power core"] = 1,
 		["jade"] = 2,
 	},
-	["gnomisch cloaking device"] = {
+	["gnomish cloaking device"] = {
 		["gyrochronatom"] = 4,
 		["jade"] = 2,
 		["lesser moonstone"] = 2,
