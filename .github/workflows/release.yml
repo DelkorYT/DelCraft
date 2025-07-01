@@ -1,13 +1,12 @@
-name: Package and Release DelCraft Addon
+name: Package and Release WoW Addon
 
 on:
   push:
     branches:
       - main
     paths:
-      - 'DelCraft.toc'
-      - 'core.lua'
-      - 'db.lua'
+      - '*.toc'
+      - '*.lua'
     tags:
       - 'v*'
 
@@ -21,6 +20,21 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0 # Needed for git tag operations
+
+      - name: Determine addon name
+        id: addon
+        run: |
+          # Try to find the first .toc file in the root
+          toc_file=$(ls *.toc 2>/dev/null | head -n 1)
+          if [[ -n "$toc_file" ]]; then
+            # Use the .toc file name (without .toc) as addon name
+            addon_name=$(basename "$toc_file" .toc)
+          else
+            # Fallback to repository name
+            addon_name=$(basename ${{ github.repository }})
+          fi
+          echo "addon_name=$addon_name" >> $GITHUB_OUTPUT
+          echo "Found addon name: $addon_name"
 
       - name: Determine version and create tag for main commits
         id: version
@@ -44,22 +58,22 @@ jobs:
             git tag $version || echo "Tag $version already exists, using existing tag"
             git push origin $version || true
             echo "version=$version" >> $GITHUB_OUTPUT
-            echo "release_name=DelCraft-$version" >> $GITHUB_OUTPUT
+            echo "release_name=${{ steps.addon.outputs.addon_name }}-$version" >> $GITHUB_OUTPUT
             echo "changelog=Automated release for commit ${{ github.sha }} (Tag $version)" >> $GITHUB_OUTPUT
           else
             version=${{ github.ref_name }}
             echo "version=$version" >> $GITHUB_OUTPUT
-            echo "release_name=DelCraft-$version" >> $GITHUB_OUTPUT
+            echo "release_name=${{ steps.addon.outputs.addon_name }}-$version" >> $GITHUB_OUTPUT
             echo "changelog=Release $version" >> $GITHUB_OUTPUT
           fi
 
       - name: Package addon
         run: |
-          mkdir -p release/DelCraft
+          mkdir -p release/${{ steps.addon.outputs.addon_name }}
           # Copy all files except excluded ones
-          rsync -av --exclude='.pkgmeta' --exclude='.github/' . release/DelCraft/
+          rsync -av --exclude='.pkgmeta' --exclude='.github/' --exclude='.gitignore' . release/${{ steps.addon.outputs.addon_name }}/
           cd release
-          zip -r DelCraft-${{ steps.version.outputs.version }}.zip DelCraft
+          zip -r ${{ steps.addon.outputs.addon_name }}-${{ steps.version.outputs.version }}.zip ${{ steps.addon.outputs.addon_name }}
           ls -la
 
       - name: Create GitHub Release
@@ -69,13 +83,13 @@ jobs:
           name: ${{ steps.version.outputs.release_name }}
           body: ${{ steps.version.outputs.changelog }}
           prerelease: false
-          files: release/DelCraft-${{ steps.version.outputs.version }}.zip
+          files: release/${{ steps.addon.outputs.addon_name }}-${{ steps.version.outputs.version }}.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: DelCraft-${{ steps.version.outputs.version }}
-          path: release/DelCraft-${{ steps.version.outputs.version }}.zip
+          name: ${{ steps.addon.outputs.addon_name }}-${{ steps.version.outputs.version }}
+          path: release/${{ steps.addon.outputs.addon_name }}-${{ steps.version.outputs.version }}.zip
           retention-days: 7
