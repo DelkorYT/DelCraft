@@ -98,6 +98,7 @@ end
 
 local function MyAddonCommands(msg, _)
 	if msg == "total" then
+		totalCraftI = {}
 		for k, v in pairs(totalCraft) do
 			table.insert(totalCraftI, { k, v })
 		end
