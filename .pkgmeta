@@ -1,0 +1,7 @@
+package-as: DelCraft
+enable-nolib-creation: no
+ignore:
+  - .git
+  - .github
+  - .gitignore
+  - .pkgmeta
