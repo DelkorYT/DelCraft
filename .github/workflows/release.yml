@@ -1,4 +1,4 @@
-name: Package DelCraft Addon
+name: Package and Release DelCraft Addon
 
 on:
   push:
@@ -8,32 +8,59 @@ on:
       - '*'
 
 jobs:
-  package:
+  package-and-release:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Determine version
-      id: version
-      run: |
-        if [[ "${{ github.event_name }}" == "push" && "${{ github.ref }}" == "refs/heads/main" ]]; then
-          echo "version=${{ github.sha }}" >> $GITHUB_OUTPUT
-        else
-          echo "version=${{ github.ref_name }}" >> $GITHUB_OUTPUT
-        fi
+      - name: Determine version and release type
+        id: version
+        run: |
+          if [[ "${{ github.event_name }}" == "push" && "${{ github.ref }}" == "refs/heads/main" ]]; then
+            echo "version=${{ github.sha }}" >> $GITHUB_OUTPUT
+            echo "release_type=prerelease" >> $GITHUB_OUTPUT
+            echo "release_name=DelCraft-${{ github.sha }}" >> $GITHUB_OUTPUT
+            echo "changelog=Automated pre-release for commit ${{ github.sha }}" >> $GITHUB_OUTPUT
+          else
+            echo "version=${{ github.ref_name }}" >> $GITHUB_OUTPUT
+            echo "release_type=release" >> $GITHUB_OUTPUT
+            echo "release_name=DelCraft-${{ github.ref_name }}" >> $GITHUB_OUTPUT
+            echo "changelog=Release ${{ github.ref_name }}" >> $GITHUB_OUTPUT
+          fi
 
-    - name: Package addon
-      run: |
-        mkdir -p release/DelCraft
-        cp DelCraft.toc core.lua db.lua release/DelCraft/
-        cd release
-        zip -r DelCraft-${{ steps.version.outputs.version }}.zip DelCraft
-        ls -la
+      - name: Package addon
+        run: |
+          mkdir -p release/DelCraft
+          cp DelCraft.toc core.lua db.lua release/DelCraft/
+          cd release
+          zip -r DelCraft-${{ steps.version.outputs.version }}.zip DelCraft
+          ls -la
 
-    - name: Upload artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: DelCraft-${{ steps.version.outputs.version }}
-        path: release/DelCraft-${{ steps.version.outputs.version }}.zip
-        retention-days: 7
+      - name: Create GitHub Release
+        id: create-release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.version.outputs.version }}
+          release_name: ${{ steps.version.outputs.release_name }}
+          body: ${{ steps.version.outputs.changelog }}
+          prerelease: ${{ steps.version.outputs.release_type == 'prerelease' }}
+
+      - name: Upload release asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create-release.outputs.upload_url }}
+          asset_path: release/DelCraft-${{ steps.version.outputs.version }}.zip
+          asset_name: DelCraft-${{ steps.version.outputs.version }}.zip
+          asset_content_type: application/zip
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: DelCraft-${{ steps.version.outputs.version }}
+          path: release/DelCraft-${{ steps.version.outputs.version }}.zip
+          retention-days: 7
