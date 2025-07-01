@@ -56,7 +56,8 @@ jobs:
       - name: Package addon
         run: |
           mkdir -p release/DelCraft
-          cp DelCraft.toc core.lua db.lua release/DelCraft/
+          # Copy all files except excluded ones
+          rsync -av --exclude='.pkgmeta' --exclude='.github/' . release/DelCraft/
           cd release
           zip -r DelCraft-${{ steps.version.outputs.version }}.zip DelCraft
           ls -la
