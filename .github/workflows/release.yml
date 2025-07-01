@@ -20,10 +20,12 @@ jobs:
         id: version
         run: |
           if [[ "${{ github.event_name }}" == "push" && "${{ github.ref }}" == "refs/heads/main" ]]; then
-            echo "version=${{ github.sha }}" >> $GITHUB_OUTPUT
+            # Use timestamp for main branch commits
+            timestamp=$(date -u +%Y%m%d-%H%M)
+            echo "version=snapshot-$timestamp" >> $GITHUB_OUTPUT
             echo "release_type=true" >> $GITHUB_OUTPUT
-            echo "release_name=DelCraft-${{ github.sha }}" >> $GITHUB_OUTPUT
-            echo "changelog=Automated pre-release for commit ${{ github.sha }}" >> $GITHUB_OUTPUT
+            echo "release_name=DelCraft-snapshot-$timestamp" >> $GITHUB_OUTPUT
+            echo "changelog=Automated pre-release for commit ${{ github.sha }} (Snapshot $timestamp)" >> $GITHUB_OUTPUT
           else
             echo "version=${{ github.ref_name }}" >> $GITHUB_OUTPUT
             echo "release_type=false" >> $GITHUB_OUTPUT
