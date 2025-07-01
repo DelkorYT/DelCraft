@@ -1,7 +1,7 @@
 name: Package and Release DelCraft Addon
 
 on:
-  push@grok4:
+  push:
     branches:
       - main
     tags:
