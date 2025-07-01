@@ -131,18 +131,18 @@ local function MyAddonCommands(msg, _)
 		return
 	end
 
-	local root, qty = string.match(msg, "(%D+)%s(%d+)")
-
-	if qty == nil then
-		qty = 1
-		root = string.match(msg, "%D+")
-	end
+	local root, qty
+	root, qty = string.match(msg, '"([^"]+)"%s*(%d*)')
 	if root == nil then
-		print(
-			"wrong inputs, use '/craft <item> <quantity>' where <item> is the name of the item (string) and <quantity> the amount (number). if you do not specify a quantity, then quantity = 1 is assumed"
-		)
-		return
+		root, qty = string.match(msg, "(%S+)%s*(%d*)")
+		if root == nil then
+			print(
+				'Wrong input. Use \'/craft "<item>" <quantity>\' for items with spaces or special characters (e.g., "enchant 2h weapon - major intellect 1") or \'/craft <item> <quantity>\' for single-word items (e.g., "dummy 10"). Quantity is optional (defaults to 1).'
+			)
+			return
+		end
 	end
+	qty = tonumber(qty) or 1
 	root = string.lower(root)
 	dfs(root, qty)
 end
