@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'DelCraft.toc'
+      - 'core.lua'
+      - 'db.lua'
     tags:
       - 'v*'
 
