@@ -1,0 +1,39 @@
+name: Package DelCraft Addon
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - '*'
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Determine version
+      id: version
+      run: |
+        if [[ "${{ github.event_name }}" == "push" && "${{ github.ref }}" == "refs/heads/main" ]]; then
+          echo "version=${{ github.sha }}" >> $GITHUB_OUTPUT
+        else
+          echo "version=${{ github.ref_name }}" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Package addon
+      run: |
+        mkdir -p release/DelCraft
+        cp DelCraft.toc core.lua db.lua release/DelCraft/
+        cd release
+        zip -r DelCraft-${{ steps.version.outputs.version }}.zip DelCraft
+        ls -la
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: DelCraft-${{ steps.version.outputs.version }}
+        path: release/DelCraft-${{ steps.version.outputs.version }}.zip
+        retention-days: 7
