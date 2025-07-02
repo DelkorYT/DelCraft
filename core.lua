@@ -238,6 +238,5 @@ local function MyAddonCommands(msg, _)
     dfs(root, qty)
 end
 
--- Register the slash commands
 SLASH_DELCRAFT1, SLASH_DELCRAFT2 = "/craft", "/delcraft"
 SlashCmdList["DELCRAFT"] = MyAddonCommands
