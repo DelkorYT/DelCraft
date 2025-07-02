@@ -105,7 +105,7 @@ jobs:
               metadata = {
                   'changelog': '${{ steps.version.outputs.changelog }}',
                   'displayName': '${{ steps.version.outputs.release_name }}',
-                  'gameVersions': ['11404'], # Replace with your WoW version (e.g., Classic 1.15.0)
+                  'gameVersions': [11507],
                   'releaseType': 'release'
               }
               response = requests.post(
