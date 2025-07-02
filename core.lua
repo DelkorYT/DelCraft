@@ -220,7 +220,7 @@ local function MyAddonCommands(msg, _)
         -- Multiple matches: print suggestions
         print("Multiple items match '" .. root .. "'. Please specify one of:")
         for i, match in ipairs(matches) do
-            if i > 5 then -- Limit to 5 suggestions to avoid chat spam
+            if i > 5 then
                 print("  ... (more matches available, please refine your input)")
                 break
             end
