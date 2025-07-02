@@ -1,4 +1,7 @@
 package-as: DelCraft
+release-channel: release # Or 'beta'/'alpha' depending on your GitHub release type
+game-versions:
+  - 1.15.7 # This is the correct version for WoW Classic Era / Season of Discovery
 enable-nolib-creation: no
 ignore:
   - .git
