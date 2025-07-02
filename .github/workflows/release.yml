@@ -19,7 +19,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Needed for git tag operations
+          fetch-depth: 0
 
       - name: Determine addon name
         id: addon
@@ -86,6 +86,40 @@ jobs:
           files: release/${{ steps.addon.outputs.addon_name }}-${{ steps.version.outputs.version }}.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload to CurseForge
+        env:
+          CURSEFORGE_API_TOKEN: ${{ secrets.CURSEFORGE_API_TOKEN }}
+          PROJECT_ID: 1298139
+        run: |
+          python -c "
+          import requests
+          import json
+          import os
+          api_token = os.getenv('CURSEFORGE_API_TOKEN')
+          project_id = os.getenv('PROJECT_ID')
+          if not api_token or not project_id:
+            print('Error: CURSEFORGE_API_TOKEN or PROJECT_ID not set')
+            exit(1)
+          with open('release/${{ steps.addon.outputs.addon_name }}-${{ steps.version.outputs.version }}.zip', 'rb') as f:
+              metadata = {
+                  'changelog': '${{ steps.version.outputs.changelog }}',
+                  'displayName': '${{ steps.version.outputs.release_name }}',
+                  'gameVersions': ['11404'], # Replace with your WoW version (e.g., Classic 1.15.0)
+                  'releaseType': 'release'
+              }
+              response = requests.post(
+                  f'https://wow.curseforge.com/api/projects/{project_id}/upload-file',
+                  headers={'X-Api-Token': api_token},
+                  data={'metadata': json.dumps(metadata)},
+                  files={'file': ('${{ steps.addon.outputs.addon_name }}-${{ steps.version.outputs.version }}.zip', f, 'application/zip')}
+              )
+              if response.status_code == 200:
+                  print('Successfully uploaded to CurseForge!')
+              else:
+                  print(f'Upload failed: {response.text}')
+                  exit(1)
+          "
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
