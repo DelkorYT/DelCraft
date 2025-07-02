@@ -4,4 +4,4 @@ ignore:
   - .git
   - .github
   - .gitignore
-  - .pkgmeta
+manual-changelog: CHANGELOG.md
