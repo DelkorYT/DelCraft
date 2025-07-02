@@ -228,8 +228,7 @@ local function MyAddonCommands(msg, _)
         end
         return
     end
-
-    -- Verify item exists in database
+    
     if not DelCraft.adj[root] then
         print("Item '" .. root .. "' not found in crafting database.")
         return
