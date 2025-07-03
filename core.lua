@@ -217,7 +217,6 @@ local function MyAddonCommands(msg, _)
     elseif #matches == 1 then
         root = matches[1].name
     else
-        -- Multiple matches: print suggestions
         print("Multiple items match '" .. root .. "'. Please specify one of:")
         for i, match in ipairs(matches) do
             if i > 5 then
