@@ -5822,6 +5822,11 @@ DelCraft.adj = {
 		["heavy leather"] = 2,
 		["fine thread"] = 3,
 	},
+	["small silk pack"] = {
+		["bolt of silk cloth"] = 3,
+		["heavy leather"] = 2,
+		["fine thread"] = 3,
+	},
 	["soft-soled linen boots"] = {
 		["bolt of linen cloth"] = 5,
 		["light leather"] = 2,
