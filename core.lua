@@ -135,7 +135,8 @@ local function dfs(root, qty)
     end
 end
 
-local function MyAddonCommands(msg, _)
+-- Main slash command handler (now attached to DelCraft namespace)
+function DelCraft.MyAddonCommands(msg, _)
     if msg == "total" then
         totalCraftI = {}
         for k, v in pairs(totalCraft) do
@@ -186,18 +187,6 @@ local function MyAddonCommands(msg, _)
     qty = tonumber(qty) or 1 -- Default to 1 if no quantity provided
     root = string.lower(root)
 
-    -- Apply special case mappings
-    local mappedRoot = root
-    if root == "dummy" then
-        mappedRoot = "masterwork target dummy"
-    elseif root == "sapper" then
-        mappedRoot = "goblin sapper charge"
-    elseif root == "dynamite" then
-        mappedRoot = "dense dynamite"
-    elseif root == "launcher" then
-        mappedRoot = "cluster launcher"
-    end
-
     -- Try exact match in DelCraft.adj
     if DelCraft.adj[mappedRoot] then
         root = mappedRoot
@@ -216,25 +205,19 @@ local function MyAddonCommands(msg, _)
         return
     elseif #matches == 1 then
         root = matches[1].name
+        dfs(root, qty)
+        return
     else
-        print("Multiple items match '" .. root .. "'. Please specify one of:")
+        -- Multiple matches → open shell for selection
+        local matchNames = {}
         for i, match in ipairs(matches) do
-            if i > 5 then
-                print("  ... (more matches available, please refine your input)")
-                break
-            end
-            print("  " .. match.name)
+            if i > 5 then break end
+            table.insert(matchNames, match.name)
         end
+        DelCraft.ActivateShell(root, qty, matchNames)
         return
     end
-    
-    if not DelCraft.adj[root] then
-        print("Item '" .. root .. "' not found in crafting database.")
-        return
-    end
-
-    dfs(root, qty)
 end
 
 SLASH_DELCRAFT1, SLASH_DELCRAFT2 = "/craft", "/delcraft"
-SlashCmdList["DELCRAFT"] = MyAddonCommands
+SlashCmdList["DELCRAFT"] = DelCraft.MyAddonCommands
