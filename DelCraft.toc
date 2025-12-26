@@ -2,6 +2,7 @@
 ## Title: DelCraft
 
 db.lua
+shell.lua
 core.lua
 
 
