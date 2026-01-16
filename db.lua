@@ -169,6 +169,7 @@ DelCraft.adj = {
 	["iron bar"] = {},
 	["mithril bar"] = {},
 	["mithril ore"] = {},
+	["thorium ore"] = {},
 	["silver bar"] = {},
 	["steel bar"] = {},
 	["thorium bar"] = {},
