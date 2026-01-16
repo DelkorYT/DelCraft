@@ -634,6 +634,11 @@ DelCraft.adj = {
 		["goldthorn"] = 1,
 		["leaded vial"] = 1,
 	},
+	["greater stoneshield potion"] = {
+		["stonescale oil"] = 3,
+		["thorium ore"] = 1,
+		["crystal vial"] = 1,
+	},
 	["limited invulnerability potion"] = {
 		["blindweed"] = 2,
 		["ghost mushroom"] = 1,
