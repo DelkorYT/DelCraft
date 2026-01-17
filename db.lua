@@ -271,6 +271,7 @@ DelCraft.adj = {
 	["red power crystal"] = {},
 	["green power crystal"] = {},
 	["blue power crystal"] = {},
+	["righteous orb"] = {},
 	-- STONES
 	["aquamarine"] = {},
 	["azerothian diamond"] = {},
