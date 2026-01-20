@@ -231,6 +231,7 @@ DelCraft.adj = {
 	["jet black feather"] = {},
 	["large fang"] = {},
 	["large venom sac"] = {},
+	["larval acid"] = {},
 	["lava core"] = {},
 	["leaded vial"] = {},
 	["living essence"] = {},
