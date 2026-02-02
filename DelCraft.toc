@@ -1,10 +1,7 @@
-## Interface: 11507
+## Interface: 11508
 ## Title: DelCraft
 
 db.lua
 ids.lua
 shell.lua
 core.lua
-
-
-
