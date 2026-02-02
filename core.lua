@@ -6,6 +6,45 @@ local totalCraft = {}
 local totalCraftI = {}
 local totalCraftSort = {}
 
+-- Helper to format quantity + item name as a clickable link
+local function formatItemWithLink(itemName, quantity)
+    if not itemName or itemName == "" then
+        return quantity .. "x ?"
+    end
+
+    -- Normalize key lookup (in case of any casing differences)
+    local key = string.lower(itemName)
+    local data = DelCraft.itemData and DelCraft.itemData[key]
+    local id = data and data.id
+
+    local link
+
+    -- If we have an ID → build instant white hyperlink
+    if id then
+        -- Title-case the name for display (e.g. "coarse dynamite" → "Coarse Dynamite")
+        local displayName = itemName:gsub("(%a)([%w_']*)", function(first, rest)
+            return first:upper() .. rest:lower()
+        end)
+
+        -- Build Classic-style item link (white color, clickable, shows real tooltip on hover)
+        link = string.format("|cffffffff|Hitem:%d:0:0:0:0:0:0:0|h[%s]|h|r", id, displayName)
+    else
+        -- Fallback: try real API (may give colored link if already cached)
+        local _, realLink = GetItemInfo(itemName)
+        if realLink then
+            link = realLink
+        end
+    end
+
+    -- Return formatted string
+    if link then
+        return quantity .. "x " .. link
+    else
+        -- Plain white text fallback
+        return quantity .. "x |cffffffff" .. itemName .. "|r"
+    end
+end
+
 -- Dependency-aware sort (child items before parents)
 local function customSort(array)
     local countSwap = 1
@@ -123,14 +162,14 @@ local function dfs(root, qty)
 
     print("to buy")
     for k, v in pairs(toBuy) do
-        print("", v .. "x ", k)
+        print("", formatItemWithLink(k, v))
         totalBuy[k] = (totalBuy[k] or 0) + v
     end
 
     print("-----------------------------------------")
     print("to craft sorted")
     for _, v in ipairs(toCraftSorted) do
-        print("", v[2] .. "x ", v[1])
+        print("", formatItemWithLink(v[1], v[2]))
         totalCraft[v[1]] = (totalCraft[v[1]] or 0) + v[2]
     end
 end
@@ -149,13 +188,13 @@ function DelCraft.MyAddonCommands(msg, _)
 
         print("totalBuy:")
         for k, v in pairs(totalBuy) do
-            print("", v .. "x ", k)
+            print("", formatItemWithLink(k, v))
         end
 
         print("-----------------------------------------")
         print("totalCraftSort:")
         for _, v in ipairs(totalCraftSort) do
-            print("", v[2] .. "x ", v[1])
+            print("", formatItemWithLink(v[1], v[2]))
         end
         return
     end
@@ -188,11 +227,7 @@ function DelCraft.MyAddonCommands(msg, _)
     root = string.lower(root)
 
     -- Try exact match in DelCraft.adj
-    if DelCraft.adj[mappedRoot] then
-        root = mappedRoot
-        dfs(root, qty)
-        return
-    elseif DelCraft.adj[root] then
+    if DelCraft.adj[root] then
         -- Input is already an exact match
         dfs(root, qty)
         return
