@@ -7,89 +7,77 @@ on:
     paths:
       - '*.toc'
       - '*.lua'
-    tags:
-      - 'v*'
+
+permissions:
+  contents: write
 
 jobs:
   package-and-release:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Needed for git tag operations
+          fetch-depth: 0
 
       - name: Determine addon name
         id: addon
         run: |
-          # Try to find the first .toc file in the root
           toc_file=$(ls *.toc 2>/dev/null | head -n 1)
           if [[ -n "$toc_file" ]]; then
-            # Use the .toc file name (without .toc) as addon name
             addon_name=$(basename "$toc_file" .toc)
           else
-            # Fallback to repository name
             addon_name=$(basename ${{ github.repository }})
           fi
           echo "addon_name=$addon_name" >> $GITHUB_OUTPUT
           echo "Found addon name: $addon_name"
 
-      - name: Determine version and create tag for main commits
-        id: version
+      - name: Calculate next semantic version
+        id: semver
+        uses: PaulHatch/semantic-version@v5.0.2
+        with:
+          enable_prerelease_mode: false
+          major_pattern: "(?i)major|breaking|feat!"           # case-insensitive: Major, BREAKING, feat!, Feat!, etc.
+          minor_pattern: "(?i)feature|feat|minor|add"         # Feature, FEAT, feat, Minor, etc.
+          patch_pattern: "(?i)fix|bug|patch|chore|docs|refactor|test|style"  # Fix, FIX, fix, Chore, etc.
+          format: "${major}.${minor}.${patch}"
+          tag_prefix: "v"
+          bump_each_commit: false
+
+      - name: Create and push tag (only if version changed)
+        if: steps.semver.outputs.version != ''
         run: |
-          if [[ "${{ github.event_name }}" == "push" && "${{ github.ref }}" == "refs/heads/main" ]]; then
-            # Get the latest tag or default to v0.0.0
-            latest_tag=$(git describe --tags --match "v*" --abbrev=0 2>/dev/null || echo "v0.0.0")
-            # Extract version numbers (e.g., v1.0.0 -> 1, 0, 0)
-            version_regex="v([0-9]+)\.([0-9]+)\.([0-9]+)"
-            if [[ $latest_tag =~ $version_regex ]]; then
-              major=${BASH_REMATCH[1]}
-              minor=${BASH_REMATCH[2]}
-              patch=${BASH_REMATCH[3]}
-              # Increment patch version
-              new_patch=$((patch + 1))
-              version="v${major}.${minor}.${new_patch}"
-            else
-              version="v0.0.1"
-            fi
-            echo "Creating tag $version"
-            git tag $version || echo "Tag $version already exists, using existing tag"
-            git push origin $version || true
-            echo "version=$version" >> $GITHUB_OUTPUT
-            echo "release_name=${{ steps.addon.outputs.addon_name }}-$version" >> $GITHUB_OUTPUT
-            echo "changelog=Automated release for commit ${{ github.sha }} (Tag $version)" >> $GITHUB_OUTPUT
-          else
-            version=${{ github.ref_name }}
-            echo "version=$version" >> $GITHUB_OUTPUT
-            echo "release_name=${{ steps.addon.outputs.addon_name }}-$version" >> $GITHUB_OUTPUT
-            echo "changelog=Release $version" >> $GITHUB_OUTPUT
-          fi
+          NEW_TAG="v${{ steps.semver.outputs.version }}"
+          git tag "$NEW_TAG"
+          git push origin "$NEW_TAG"
 
       - name: Package addon
         run: |
           mkdir -p release/${{ steps.addon.outputs.addon_name }}
-          # Copy all files except excluded ones
           rsync -av --exclude='.pkgmeta' --exclude='.github/' --exclude='.gitignore' . release/${{ steps.addon.outputs.addon_name }}/
           cd release
-          zip -r ${{ steps.addon.outputs.addon_name }}-${{ steps.version.outputs.version }}.zip ${{ steps.addon.outputs.addon_name }}
+          zip -r ${{ steps.addon.outputs.addon_name }}-${{ steps.semver.outputs.version }}.zip ${{ steps.addon.outputs.addon_name }}
           ls -la
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
+        if: steps.semver.outputs.version != ''
         with:
-          tag_name: ${{ steps.version.outputs.version }}
-          name: ${{ steps.version.outputs.release_name }}
-          body: ${{ steps.version.outputs.changelog }}
-          prerelease: false
-          files: release/${{ steps.addon.outputs.addon_name }}-${{ steps.version.outputs.version }}.zip
+          tag_name: v${{ steps.semver.outputs.version }}
+          name: ${{ steps.addon.outputs.addon_name }} v${{ steps.semver.outputs.version }}
+          body: |
+            Automated release for commit ${{ github.sha }}
+            Version bump: ${{ steps.semver.outputs.version_type }}
+            Commits since last tag:
+            ${{ github.event.head_commit.message }}
+          files: release/${{ steps.addon.outputs.addon_name }}-${{ steps.semver.outputs.version }}.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ steps.addon.outputs.addon_name }}-${{ steps.version.outputs.version }}
-          path: release/${{ steps.addon.outputs.addon_name }}-${{ steps.version.outputs.version }}.zip
+          name: ${{ steps.addon.outputs.addon_name }}-v${{ steps.semver.outputs.version }}
+          path: release/${{ steps.addon.outputs.addon_name }}-${{ steps.semver.outputs.version }}.zip
           retention-days: 7
