@@ -6028,8 +6028,6 @@ DelCraft.adj = {
 	},
 --SETS
 	["warrior nature res"] = {
-		["bramblewood helm"] = 1,
-		["bramblewood boots"] = 1,
 		["ironvine breastplate"] = 1,
 		["ironvine gloves"] = 1,
 		["ironvine belt"] = 1,
