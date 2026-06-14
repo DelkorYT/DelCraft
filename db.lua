@@ -2072,36 +2072,36 @@ DelCraft.adj = {
 		["firebloom"] = 3,
 		["imbued vial"] = 1,
 	},
-	["enchant 2h weapon - agility"] = {
+	["enchant 2h weapon - agility (+25)"] = {
 		["large brilliant shard"] = 10,
 		["greater eternal essence"] = 6,
 		["illusion dust"] = 14,
 		["essence of air"] = 4,
 	},
-	["enchant 2h weapon - greater impact"] = {
+	["enchant 2h weapon - greater impact (+7)"] = {
 		["large radiant shard"] = 2,
 		["dream dust"] = 2,
 	},
-	["enchant 2h weapon - impact"] = {
+	["enchant 2h weapon - impact (+5)"] = {
 		["vision dust"] = 4,
 		["large glowing shard"] = 1,
 	},
-	["enchant 2h weapon - lesser impact"] = {
+	["enchant 2h weapon - lesser impact (+3)"] = {
 		["soul dust"] = 3,
 		["large glimmering shard"] = 1,
 	},
-	["enchant 2h weapon - lesser intellect"] = {
+	["enchant 2h weapon - lesser intellect (+3)"] = {
 		["greater magic essence"] = 3,
 	},
-	["enchant 2h weapon - lesser spirit"] = {
+	["enchant 2h weapon - lesser spirit (+3)"] = {
 		["lesser astral essence"] = 1,
 		["strange dust"] = 6,
 	},
-	["enchant 2h weapon - major intellect"] = {
+	["enchant 2h weapon - major intellect (+9)"] = {
 		["greater eternal essence"] = 12,
 		["large brilliant shard"] = 2,
 	},
-	["enchant 2h weapon - major spirit"] = {
+	["enchant 2h weapon - major spirit (+9)"] = {
 		["greater eternal essence"] = 12,
 		["large brilliant shard"] = 2,
 	},
@@ -2109,31 +2109,31 @@ DelCraft.adj = {
 		["strange dust"] = 4,
 		["small glimmering shard"] = 1,
 	},
-	["enchant 2h weapon - superior impact"] = {
+	["enchant 2h weapon - superior impact (+9)"] = {
 		["large brilliant shard"] = 4,
 		["illusion dust"] = 10,
 	},
-	["enchant boots - agility"] = {
+	["enchant boots - agility (+5)"] = {
 		["greater nether essence"] = 2,
 	},
-	["enchant boots - greater agility"] = {
+	["enchant boots - greater agility (+7)"] = {
 		["greater eternal essence"] = 8,
 	},
-	["enchant boots - greater stamina"] = {
+	["enchant boots - greater stamina (+7)"] = {
 		["dream dust"] = 10,
 	},
-	["enchant boots - lesser agility"] = {
+	["enchant boots - lesser agility (+3)"] = {
 		["soul dust"] = 1,
 		["lesser mystic essence"] = 1,
 	},
-	["enchant boots - lesser spirit"] = {
+	["enchant boots - lesser spirit (+3)"] = {
 		["greater mystic essence"] = 1,
 		["lesser mystic essence"] = 2,
 	},
-	["enchant boots - lesser stamina"] = {
+	["enchant boots - lesser stamina (+3)"] = {
 		["soul dust"] = 4,
 	},
-	["enchant boots - minor agility"] = {
+	["enchant boots - minor agility (+1)"] = {
 		["strange dust"] = 6,
 		["lesser astral essence"] = 2,
 	},
@@ -2142,31 +2142,31 @@ DelCraft.adj = {
 		["aquamarine"] = 1,
 		["lesser nether essence"] = 1,
 	},
-	["enchant boots - minor stamina"] = {
+	["enchant boots - minor stamina (+1)"] = {
 		["strange dust"] = 8,
 	},
-	["enchant boots - spirit"] = {
+	["enchant boots - spirit (+5)"] = {
 		["greater eternal essence"] = 2,
 		["lesser eternal essence"] = 1,
 	},
-	["enchant boots - stamina"] = {
+	["enchant boots - stamina (+5)"] = {
 		["vision dust"] = 5,
 	},
-	["enchant bracer - deflection"] = {
+	["enchant bracer - deflection (+3)"] = {
 		["greater nether essence"] = 1,
 		["dream dust"] = 2,
 	},
-	["enchant bracer - greater intellect"] = {
+	["enchant bracer - greater intellect (+7)"] = {
 		["lesser eternal essence"] = 3,
 	},
-	["enchant bracer - greater spirit"] = {
+	["enchant bracer - greater spirit (+7)"] = {
 		["lesser nether essence"] = 3,
 		["vision dust"] = 1,
 	},
-	["enchant bracer - greater stamina"] = {
+	["enchant bracer - greater stamina (+7)"] = {
 		["dream dust"] = 5,
 	},
-	["enchant bracer - greater strength"] = {
+	["enchant bracer - greater strength (+7)"] = {
 		["dream dust"] = 2,
 		["greater nether essence"] = 1,
 	},
@@ -2176,23 +2176,23 @@ DelCraft.adj = {
 		["greater eternal essence"] = 4,
 		["living essence"] = 6,
 	},
-	["enchant bracer - intellect"] = {
+	["enchant bracer - intellect (+5)"] = {
 		["lesser nether essence"] = 2,
 	},
-	["enchant bracer - lesser deflection"] = {
+	["enchant bracer - lesser deflection (+2)"] = {
 		["lesser mystic essence"] = 1,
 		["soul dust"] = 2,
 	},
-	["enchant bracer - lesser intellect"] = {
+	["enchant bracer - lesser intellect (+3)"] = {
 		["greater astral essence"] = 2,
 	},
-	["enchant bracer - lesser spirit"] = {
+	["enchant bracer - lesser spirit (+3)"] = {
 		["lesser astral essence"] = 2,
 	},
-	["enchant bracer - lesser stamina"] = {
+	["enchant bracer - lesser stamina (+3)"] = {
 		["soul dust"] = 2,
 	},
-	["enchant bracer - lesser strength"] = {
+	["enchant bracer - lesser strength (+3)"] = {
 		["soul dust"] = 2,
 	},
 	["enchant bracer - mana regeneration"] = {
@@ -2200,118 +2200,118 @@ DelCraft.adj = {
 		["greater eternal essence"] = 4,
 		["essence of water"] = 2,
 	},
-	["enchant bracer - minor agility"] = {
+	["enchant bracer - minor agility *1)"] = {
 		["strange dust"] = 2,
 		["greater magic essence"] = 1,
 	},
-	["enchant bracer - minor deflect"] = {
+	["enchant bracer - minor deflect (+1)"] = {
 		["lesser magic essence"] = 1,
 		["strange dust"] = 1,
 	},
-	["enchant bracer - minor health"] = {
+	["enchant bracer - minor health (+5)"] = {
 		["strange dust"] = 1,
 	},
-	["enchant bracer - minor spirit"] = {
+	["enchant bracer - minor spirit (+1)"] = {
 		["lesser magic essence"] = 2,
 	},
-	["enchant bracer - minor stamina"] = {
+	["enchant bracer - minor stamina (+1)"] = {
 		["strange dust"] = 3,
 	},
-	["enchant bracer - minor strength"] = {
+	["enchant bracer - minor strength (+1)"] = {
 		["strange dust"] = 5,
 	},
-	["enchant bracer - spirit"] = {
+	["enchant bracer - spirit (+5)"] = {
 		["lesser mystic essence"] = 1,
 	},
-	["enchant bracer - stamina"] = {
+	["enchant bracer - stamina (+5)"] = {
 		["soul dust"] = 6,
 	},
-	["enchant bracer - strength"] = {
+	["enchant bracer - strength (+5)"] = {
 		["vision dust"] = 1,
 	},
-	["enchant bracer - superior spirit"] = {
+	["enchant bracer - superior spirit (+9)"] = {
 		["lesser eternal essence"] = 3,
 	},
-	["enchant bracer - superior stamina"] = {
+	["enchant bracer - superior stamina (+9)"] = {
 		["illusion dust"] = 15,
 	},
-	["enchant bracer - superior strength"] = {
+	["enchant bracer - superior strength (+9)"] = {
 		["illusion dust"] = 6,
 		["greater eternal essence"] = 6,
 	},
-	["enchant chest - greater health"] = {
+	["enchant chest - greater health (+35 hp / life)"] = {
 		["soul dust"] = 3,
 	},
-	["enchant chest - greater mana"] = {
+	["enchant chest - greater mana (+50)"] = {
 		["greater mystic essence"] = 1,
 	},
-	["enchant chest - greater stats"] = {
+	["enchant chest - greater stats (+4)"] = {
 		["large brilliant shard"] = 4,
 		["illusion dust"] = 15,
 		["greater eternal essence"] = 10,
 	},
-	["enchant chest - health"] = {
+	["enchant chest - health (+25 hp / life)"] = {
 		["strange dust"] = 4,
 		["lesser astral essence"] = 1,
 	},
-	["enchant chest - lesser absorption"] = {
+	["enchant chest - lesser absorption (25)"] = {
 		["strange dust"] = 2,
 		["greater astral essence"] = 1,
 		["large glimmering shard"] = 1,
 	},
-	["enchant chest - lesser health"] = {
+	["enchant chest - lesser health (+15 hp / life)"] = {
 		["strange dust"] = 2,
 		["lesser magic essence"] = 2,
 	},
-	["enchant chest - lesser mana"] = {
+	["enchant chest - lesser mana (+20)"] = {
 		["greater magic essence"] = 1,
 		["lesser magic essence"] = 1,
 	},
-	["enchant chest - lesser stats"] = {
+	["enchant chest - lesser stats (+2)"] = {
 		["greater mystic essence"] = 2,
 		["vision dust"] = 2,
 		["large glowing shard"] = 1,
 	},
-	["enchant chest - major health"] = {
+	["enchant chest - major health (+100 hp / life)"] = {
 		["illusion dust"] = 6,
 		["small brilliant shard"] = 1,
 	},
-	["enchant chest - major mana"] = {
+	["enchant chest - major mana (+100)"] = {
 		["greater eternal essence"] = 3,
 		["small brilliant shard"] = 1,
 	},
-	["enchant chest - mana"] = {
+	["enchant chest - mana (+30)"] = {
 		["greater astral essence"] = 1,
 		["lesser astral essence"] = 2,
 	},
-	["enchant chest - minor absorption"] = {
+	["enchant chest - minor absorption (10)"] = {
 		["strange dust"] = 2,
 		["lesser magic essence"] = 1,
 	},
-	["enchant chest - minor health"] = {
+	["enchant chest - minor health (+5 hp / life"] = {
 		["strange dust"] = 1,
 	},
-	["enchant chest - minor mana"] = {
+	["enchant chest - minor mana (+5)"] = {
 		["lesser magic essence"] = 1,
 	},
-	["enchant chest - minor stats"] = {
+	["enchant chest - minor stats (+1)"] = {
 		["greater astral essence"] = 1,
 		["soul dust"] = 1,
 		["large glimmering shard"] = 1,
 	},
-	["enchant chest - stats"] = {
+	["enchant chest - stats (+3)"] = {
 		["large radiant shard"] = 1,
 		["dream dust"] = 3,
 		["greater nether essence"] = 2,
 	},
-	["enchant chest - superior health"] = {
+	["enchant chest - superior health (+50 hp / life"] = {
 		["vision dust"] = 6,
 	},
-	["enchant chest - superior mana"] = {
+	["enchant chest - superior mana (+65)"] = {
 		["greater nether essence"] = 1,
 		["lesser nether essence"] = 2,
 	},
-	["enchant cloak - defense"] = {
+	["enchant cloak - defense (+30 armor)"] = {
 		["small glowing shard"] = 1,
 		["soul dust"] = 3,
 	},
@@ -2320,24 +2320,24 @@ DelCraft.adj = {
 		["large brilliant shard"] = 8,
 		["guardian stone"] = 8,
 	},
-	["enchant cloak - fire resistance"] = {
+	["enchant cloak - fire resistance (+7)"] = {
 		["lesser mystic essence"] = 1,
 		["elemental fire"] = 1,
 	},
-	["enchant cloak - greater defense"] = {
+	["enchant cloak - greater defense (+50 armor)"] = {
 		["vision dust"] = 3,
 	},
-	["enchant cloak - greater fire resistance"] = {
+	["enchant cloak - greater fire resistance (+15)"] = {
 		["nexus crystal"] = 3,
 		["large brilliant shard"] = 8,
 		["essence of fire"] = 4,
 	},
-	["enchant cloak - greater nature resistance"] = {
+	["enchant cloak - greater nature resistance (+15)"] = {
 		["nexus crystal"] = 2,
 		["large brilliant shard"] = 8,
 		["living essence"] = 4,
 	},
-	["enchant cloak - greater resistance"] = {
+	["enchant cloak - greater resistance (+5)"] = {
 		["lesser eternal essence"] = 2,
 		["heart of fire"] = 1,
 		["core of earth"] = 1,
@@ -2345,33 +2345,33 @@ DelCraft.adj = {
 		["breath of wind"] = 1,
 		["ichor of undeath"] = 1,
 	},
-	["enchant cloak - lesser agility"] = {
+	["enchant cloak - lesser agility (+3)"] = {
 		["lesser nether essence"] = 2,
 	},
-	["enchant cloak - lesser fire resistance"] = {
+	["enchant cloak - lesser fire resistance (+5)"] = {
 		["fire oil"] = 1,
 		["lesser astral essence"] = 1,
 	},
-	["enchant cloak - lesser protection"] = {
+	["enchant cloak - lesser protection (+20 armor)"] = {
 		["strange dust"] = 6,
 		["small glimmering shard"] = 1,
 	},
-	["enchant cloak - lesser shadow resistance"] = {
+	["enchant cloak - lesser shadow resistance (+10)"] = {
 		["greater astral essence"] = 1,
 		["shadow protection potion"] = 1,
 	},
-	["enchant cloak - minor agility"] = {
+	["enchant cloak - minor agility (+1)"] = {
 		["lesser astral essence"] = 1,
 	},
-	["enchant cloak - minor protection"] = {
+	["enchant cloak - minor protection (+10 armor)"] = {
 		["strange dust"] = 3,
 		["greater magic essence"] = 1,
 	},
-	["enchant cloak - minor resistance"] = {
+	["enchant cloak - minor resistance (+1)"] = {
 		["strange dust"] = 1,
 		["lesser magic essence"] = 2,
 	},
-	["enchant cloak - resistance"] = {
+	["enchant cloak - resistance (+3)"] = {
 		["lesser nether essence"] = 1,
 	},
 	["enchant cloak - stealth"] = {
@@ -2384,7 +2384,7 @@ DelCraft.adj = {
 		["large brilliant shard"] = 6,
 		["black diamond"] = 2,
 	},
-	["enchant cloak - superior defense"] = {
+	["enchant cloak - superior defense (+70 armor)"] = {
 		["illusion dust"] = 8,
 	},
 	["enchant gloves - advanced herbalism"] = {
@@ -2395,7 +2395,7 @@ DelCraft.adj = {
 		["vision dust"] = 3,
 		["truesilver bar"] = 3,
 	},
-	["enchant gloves - agility"] = {
+	["enchant gloves - agility (+5)"] = {
 		["lesser nether essence"] = 1,
 		["vision dust"] = 1,
 	},
@@ -2413,11 +2413,11 @@ DelCraft.adj = {
 		["large brilliant shard"] = 8,
 		["righteous orb"] = 1,
 	},
-	["enchant gloves - greater agility"] = {
+	["enchant gloves - greater agility (+7)"] = {
 		["lesser eternal essence"] = 3,
 		["illusion dust"] = 3,
 	},
-	["enchant gloves - greater strength"] = {
+	["enchant gloves - greater strength (+7)"] = {
 		["greater eternal essence"] = 4,
 		["illusion dust"] = 4,
 	},
@@ -2451,11 +2451,11 @@ DelCraft.adj = {
 		["vision dust"] = 1,
 		["green whelp scale"] = 3,
 	},
-	["enchant gloves - strength"] = {
+	["enchant gloves - strength (+5)"] = {
 		["lesser nether essence"] = 2,
 		["vision dust"] = 3,
 	},
-	["enchant gloves - superior agility"] = {
+	["enchant gloves - superior agility (+15)"] = {
 		["nexus crystal"] = 3,
 		["large brilliant shard"] = 8,
 		["essence of air"] = 4,
@@ -2465,15 +2465,15 @@ DelCraft.adj = {
 		["large brilliant shard"] = 6,
 		["larval acid"] = 8,
 	},
-	["enchant shield - frost resistance"] = {
+	["enchant shield - frost resistance (+8)"] = {
 		["large radiant shard"] = 1,
 		["frost oil"] = 1,
 	},
-	["enchant shield - greater spirit"] = {
+	["enchant shield - greater spirit (+7)"] = {
 		["greater nether essence"] = 1,
 		["dream dust"] = 2,
 	},
-	["enchant shield - greater stamina"] = {
+	["enchant shield - greater stamina (+7)"] = {
 		["dream dust"] = 10,
 	},
 	["enchant shield - lesser block"] = {
@@ -2481,35 +2481,35 @@ DelCraft.adj = {
 		["vision dust"] = 2,
 		["large glowing shard"] = 1,
 	},
-	["enchant shield - lesser protection"] = {
+	["enchant shield - lesser protection (+30 armor)"] = {
 		["lesser astral essence"] = 1,
 		["strange dust"] = 1,
 		["small glimmering shard"] = 1,
 	},
-	["enchant shield - lesser spirit"] = {
+	["enchant shield - lesser spirit (+3)"] = {
 		["lesser astral essence"] = 2,
 		["strange dust"] = 4,
 	},
-	["enchant shield - lesser stamina"] = {
+	["enchant shield - lesser stamina (+3)"] = {
 		["lesser mystic essence"] = 1,
 		["soul dust"] = 1,
 	},
-	["enchant shield - minor stamina"] = {
+	["enchant shield - minor stamina (+1)"] = {
 		["lesser astral essence"] = 1,
 		["strange dust"] = 2,
 	},
-	["enchant shield - spirit"] = {
+	["enchant shield - spirit (+5)"] = {
 		["greater mystic essence"] = 1,
 		["vision dust"] = 1,
 	},
-	["enchant shield - stamina"] = {
+	["enchant shield - stamina (+5)"] = {
 		["vision dust"] = 5,
 	},
-	["enchant shield - superior spirit"] = {
+	["enchant shield - superior spirit (+9)"] = {
 		["greater eternal essence"] = 2,
 		["illusion dust"] = 4,
 	},
-	["enchant weapon - agility"] = {
+	["enchant weapon - agility (+15)"] = {
 		["large brilliant shard"] = 6,
 		["greater eternal essence"] = 6,
 		["illusion dust"] = 4,
@@ -2528,7 +2528,7 @@ DelCraft.adj = {
 		["small radiant shard"] = 2,
 		["essence of fire"] = 1,
 	},
-	["enchant weapon - greater striking"] = {
+	["enchant weapon - greater striking (+4)"] = {
 		["large radiant shard"] = 2,
 		["greater nether essence"] = 2,
 	},
@@ -2545,7 +2545,7 @@ DelCraft.adj = {
 		["essence of air"] = 1,
 		["icecap"] = 1,
 	},
-	["enchant weapon - lesser beastslayer"] = {
+	["enchant weapon - lesser beastslayer (+6)"] = {
 		["lesser mystic essence"] = 1,
 		["large fang"] = 2,
 		["small glowing shard"] = 1,
@@ -2555,7 +2555,7 @@ DelCraft.adj = {
 		["elemental earth"] = 1,
 		["small glowing shard"] = 1,
 	},
-	["enchant weapon - lesser striking"] = {
+	["enchant weapon - lesser striking (+2)"] = {
 		["soul dust"] = 2,
 		["large glimmering shard"] = 1,
 	},
@@ -2569,16 +2569,16 @@ DelCraft.adj = {
 		["greater eternal essence"] = 12,
 		["illusion dust"] = 20,
 	},
-	["enchant weapon - mighty spirit"] = {
+	["enchant weapon - mighty spirit (+22)"] = {
 		["large brilliant shard"] = 10,
 		["greater eternal essence"] = 8,
 		["illusion dust"] = 15,
 	},
-	["enchant weapon - minor beastlayer"] = {
+	["enchant weapon - minor beastlayer (+2)"] = {
 		["strange dust"] = 4,
 		["greater magic essence"] = 2,
 	},
-	["enchant weapon - minor striking"] = {
+	["enchant weapon - minor striking (+1)"] = {
 		["strange dust"] = 2,
 		["greater magic essence"] = 1,
 		["small glimmering shard"] = 1,
@@ -2591,17 +2591,17 @@ DelCraft.adj = {
 		["essence of air"] = 4,
 		["golden pearl"] = 2,
 	},
-	["enchant weapon - strength"] = {
+	["enchant weapon - strength (+15)"] = {
 		["large brilliant shard"] = 6,
 		["greater eternal essence"] = 6,
 		["illusion dust"] = 4,
 		["essence of earth"] = 2,
 	},
-	["enchant weapon - striking"] = {
+	["enchant weapon - striking (+3)"] = {
 		["greater mystic essence"] = 2,
 		["large glowing shard"] = 1,
 	},
-	["enchant weapon - superior striking"] = {
+	["enchant weapon - superior striking (+5)"] = {
 		["large brilliant shard"] = 2,
 		["greater eternal essence"] = 10,
 	},
@@ -6025,5 +6025,44 @@ DelCraft.adj = {
 	["woolen cape"] = {
 		["bolt of woolen cloth"] = 1,
 		["fine thread"] = 1,
+	},
+--SETS
+	["warrior nature res"] = {
+		["bramblewood helm"] = 1,
+		["bramblewood boots"] = 1,
+		["ironvine breastplate"] = 1,
+		["ironvine gloves"] = 1,
+		["ironvine belt"] = 1,
+		["gaea's embrace"] = 1,
+	},
+	["rogue nature res"] = {
+		["bramblewood helm"] = 1,
+		["bramblewood boots"] = 1,
+		["bramblewood belt"] = 1,
+		["gaea's embrace"] = 1,
+	},
+	["warrior frost res"] = {
+		["icebane breastplate"] = 1,
+		["icebane gauntlets"] = 1,
+		["icebane bracers"] = 1,
+		["glacial cloak"] = 1,
+	},
+	["rogue frost res"] = {
+		["polar tunic"] = 1,
+		["polar gloves"] = 1,
+		["polar bracers"] = 1,
+		["glacial cloak"] = 1,
+	},
+	["hunter frost res"] = {
+		["polar tunic"] = 1,
+		["polar gloves"] = 1,
+		["polar bracers"] = 1,
+		["glacial cloak"] = 1,
+	},	
+	["healer frost res"] = {
+		["glacial vest"] = 1,
+		["glacial gloves"] = 1,
+		["glacial wrists"] = 1,
+		["glacial cloak"] = 1,
 	},
 }
