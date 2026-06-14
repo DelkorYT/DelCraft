@@ -225,6 +225,7 @@ DelCraft.adj = {
 	["heavy silken thread"] = {},
 	["heavy stock"] = {},
 	["ichor of undeath"] = {},
+    ["imbued vial"] = {},
 	["iridescent pearl"] = {},
 	["ironfeather"] = {},
 	["ironweb spider silk"] = {},

@@ -242,11 +242,11 @@ function DelCraft.MyAddonCommands(msg, _)
         root = matches[1].name
         dfs(root, qty)
         return
-    else
-        -- Multiple matches → open shell for selection
+      else
+        -- Multiple matches → open our safe custom shell
         local matchNames = {}
         for i, match in ipairs(matches) do
-            if i > 5 then break end
+            if i > 10 then break end   -- limit to 10 for cleanliness
             table.insert(matchNames, match.name)
         end
         DelCraft.ActivateShell(root, qty, matchNames)
