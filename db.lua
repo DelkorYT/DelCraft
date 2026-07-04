@@ -2525,7 +2525,7 @@ DelCraft.adj = {
 		["elixir of demonslaying"] = 1,
 	},
 	["enchant weapon - fiery weapon"] = {
-		["small radiant shard"] = 2,
+		["small radiant shard"] = 4,
 		["essence of fire"] = 1,
 	},
 	["enchant weapon - greater striking (+4)"] = {
