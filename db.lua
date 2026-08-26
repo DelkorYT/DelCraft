@@ -142,6 +142,7 @@ DelCraft.adj = {
 	["primal tiger leather"] = {},
 	["raptor hide"] = {},
 	["red dragonscale"] = {},
+	["rugged hide"] = {},
 	["rugged leather"] = {},
 	["scale of onyxia"] = {},
 	["scorpid scale"] = {},
@@ -3847,7 +3848,7 @@ DelCraft.adj = {
 		["rune thread"] = 1,
 	},
 	["devilsaur leggings"] = {
-		["rugged hide"] = 30,
+		["rugged leather"] = 30,
 		["devilsaur leather"] = 14,
 		["cured rugged hide"] = 1,
 		["rune thread"] = 1,
