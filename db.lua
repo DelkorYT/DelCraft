@@ -6058,7 +6058,7 @@ DelCraft.adj = {
 		["polar bracers"] = 1,
 		["glacial cloak"] = 1,
 	},	
-	["healer frost res"] = {
+	["healer caster frost res"] = {
 		["glacial vest"] = 1,
 		["glacial gloves"] = 1,
 		["glacial wrists"] = 1,
