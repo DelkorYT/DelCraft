@@ -225,6 +225,7 @@ DelCraft.adj = {
 	["heart of the wild"] = {},
 	["heavy silken thread"] = {},
 	["heavy stock"] = {},
+    ["hot spices"] = {},
 	["ichor of undeath"] = {},
     ["imbued vial"] = {},
 	["iridescent pearl"] = {},
@@ -241,6 +242,7 @@ DelCraft.adj = {
 	["long tail feather"] = {},
 	["lucky charm"] = {},
 	["morrowgrain"] = {},
+    ["mystery meat"] = {},
 	["naga scale"] = {},
 	["nightcrawlers"] = {},
 	["massive mojo"] = {},
@@ -6064,4 +6066,10 @@ DelCraft.adj = {
 		["glacial wrists"] = 1,
 		["glacial cloak"] = 1,
 	},
+-- COOKING
+    ["dragonbreath chili"] = {
+        ["mystery meat"] = 1,
+        ["small flame sac"] = 1,
+        ["hot spices"] = 1,
+    }
 }
